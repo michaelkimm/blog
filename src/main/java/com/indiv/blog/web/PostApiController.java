@@ -15,13 +15,17 @@ public class PostApiController {
 
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
+        System.out.println("save");
         return postService.save(requestDto);
     }
 
 
-    @PutMapping("/api/vi/posts/{id}")
+    @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
-        return postService.update(id, requestDto);
+        System.out.println("nono");
+        Long update = postService.update(id, requestDto);
+        System.out.println("haha:" + update);
+        return update;
     }
 
     @GetMapping("/api/v1/posts/{id}")
@@ -29,4 +33,9 @@ public class PostApiController {
         return postService.findById(id);
     }
 
+    @DeleteMapping("/api/v1/posts/{id}")
+    public Long delete(@PathVariable Long id) {
+        postService.delete(id);
+        return id;
+    }
 }
