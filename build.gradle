@@ -4,6 +4,10 @@ plugins {
 	id 'java'
 }
 
+jar {
+	enabled = false
+}
+
 group = 'com.indiv'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -43,6 +47,3 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-jar {
-	enabled = false
-}
