@@ -25,6 +25,7 @@ repositories {
 dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
+	compileOnly 'org.mariadb.jdbc:mariadb-java-client'
 	compileOnly 'org.projectlombok:lombok'
 	compileOnly 'org.springframework.boot:spring-boot-starter-mustache'
 	compileOnly 'org.springframework.session:spring-session-jdbc'
