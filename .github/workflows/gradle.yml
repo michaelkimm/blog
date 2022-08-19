@@ -55,7 +55,7 @@ jobs:
       # Before deploy
     - name: Before deploy5
       run: |
-        cd before-deploy && zip -r before-delpoy/*
+        cd before-deploy && zip -r before-delpoy ./*
       # Before deploy
     - name: Before deploy6
       run: |
