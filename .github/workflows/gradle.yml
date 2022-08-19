@@ -42,16 +42,16 @@ jobs:
       # Before deploy
     - name: Before deploy2
       run: |
-        cp scripts/*.sh before_deploy/
+        cp scripts/*.sh before_deploy
       # Before deploy
     - name: Before deploy3
       run: |
-        cp appspec.yml before_deploy/
+        cp appspec.yml before_deploy
 
       # Before deploy
     - name: Before deploy4
       run: |
-        cp build/libs/*.jar before-deploy/
+        cp build/libs/*.jar before-deploy
       # Before deploy
     - name: Before deploy5
       run: |
