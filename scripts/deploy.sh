@@ -27,4 +27,4 @@ echo "> changed mode to executable"
 nohup java -jar \
     -Dspring.config.location=classpath:/application.properties,/home/ec2-user/app/application-oauth.properties,/home/ec2-user/app/application-real-db.properties,classpath:/application-real.properties \
     -Dspring.profiles.active=real \
-    $REPOSITORY/$JAR_NAME 2>&1 &
+    $JAR_NAME > $REPOSITORY/nohup.put 2>&1 &
