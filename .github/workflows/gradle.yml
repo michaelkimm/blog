@@ -36,14 +36,33 @@ jobs:
         arguments: build
 
     # Before deploy
-    - name: Before deploy
+    - name: Before deploy1
       run: |
         mkdir -p before-delpoy
+      # Before deploy
+    - name: Before deploy2
+      run: |
         cp scripts/*.sh before_deploy/
+      # Before deploy
+    - name: Before deploy3
+      run: |
         cp appspec.yml before_deploy/
+
+      # Before deploy
+    - name: Before deploy4
+      run: |
         cp build/libs/*.jar before-deploy/
+      # Before deploy
+    - name: Before deploy5
+      run: |
         cd before-deploy && zip -r before-deploy *
+      # Before deploy
+    - name: Before deploy6
+      run: |
         cd ../ && mkdir -p deploy
+      # Before deploy
+    - name: Before deploy7
+      run: |
         mv before_deploy/before-deploy.zip deploy/blog.zip
 
     # Deploy
