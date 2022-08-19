@@ -58,3 +58,10 @@ jobs:
     - name: Upload to S3
       run: |
         aws s3 cp ./blog.zip s3://blog-springboot-build
+
+    - name: deploy with AWS codeDeploy
+        run: aws deploy create-deployment
+          --application-name blog-springboot-webservice
+          --deployment-config-name CodeDeployDefault.OneAtATime
+          --deployment-group-name blog-springboot-webservice-group
+          --s3-location bucket=blog-springboot-buildInfo,bundleType=zip,key=public/blog.zip
