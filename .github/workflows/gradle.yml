@@ -37,7 +37,7 @@ jobs:
     
     # 새로 추가 된 부분 
     - name: Make zip file
-      run: zip -r ./blog.zip
+      run: zip -r ./blog.zip .
       shell: bash
     
     # Deploy
