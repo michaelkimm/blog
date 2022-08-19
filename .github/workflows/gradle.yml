@@ -64,4 +64,4 @@ jobs:
         --application-name blog-springboot-webservice
         --deployment-config-name CodeDeployDefault.OneAtATime
         --deployment-group-name blog-springboot-webservice-group
-        --s3-location bucket=blog-springboot-buildInfo,bundleType=zip,key=public/blog.zip
+        --s3-location bucket=blog-springboot-buildInfo,bundleType=zip,key=blog.zip
