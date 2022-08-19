@@ -34,19 +34,18 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
-    
-    # 디렉토리 생성
-    - name: Make Directory
-      run: mkdir -p deploy
 
-    # Jar 파일 복사
-    - name: Copy Jar
-      run: cp ./build/libs/*.jar ./deploy
+    # Before deploy
+    - name: Before deploy
+      run: |
+        mkdir -p before-delpoy
+        cp scripts/*.sh before_deploy/
+        cp appspec.yml before_deploy/
+        cp build/libs/*.jar before-deploy/
+        cd before-deploy && zip -r before-deploy *
+        cd ../ && mkdir -p deploy
+        mv before_deploy/before-deploy.zip deploy/blog.zip
 
-    # 파일 압축
-    - name: Make zip file
-      run: zip -r ./blog.zip ./deploy
-    
     # Deploy
     - name: Deploy
       uses: aws-actions/configure-aws-credentials@v1
@@ -54,10 +53,10 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
         aws-region: ap-northeast-2
-        
+
     - name: Upload to S3
       run: |
-        aws s3 cp ./blog.zip s3://blog-springboot-build
+        aws s3 cp ./deploy/blog.zip s3://blog-springboot-build
 
     - name: deploy with AWS codeDeploy
       run: aws deploy create-deployment
