@@ -35,17 +35,10 @@ jobs:
       with:
         arguments: build
     
-    # 디렉토리 생성
-    - name: Make Directory
-      run: mkdir -p deploy
-
-    # Jar 파일 복사
-    - name: Copy Jar
-      run: cp ./build/libs/*.jar ./deploy
-
-    # 파일 압축
+    # 새로 추가 된 부분 
     - name: Make zip file
-      run: zip -r ./blog.zip ./deploy
+      run: zip -r ./blog.zip
+      shell: bash
     
     # Deploy
     - name: Deploy
